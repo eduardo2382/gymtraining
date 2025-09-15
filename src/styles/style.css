@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --background: #111827;
+    --background-menu: #1F2937;
+    --text-white: #F3F4F6;
+    --text-light: #9CA3AF;
+    --button: #2563EB;
+    --input: #374151;
+}
