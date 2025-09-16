@@ -13,10 +13,19 @@
     </header>
 
     <main>
+        
+        
         <div id="contentHeader">
             <h1>Meus Treinos</h1>
-            <input type="button" value="Novo Treino">
+            <input type="button" id="btnNovoTreino" value="Novo Treino">
         </div>
+
+        <div id="semTreino">
+            <i class="ri-survey-line"></i>
+            <h2>Nenhum treino cadastrado</h2>
+            <span>Clique em "Novo Treino" para começar</span>
+        </div>
+        <!--
         <div class="treino">
             <span class="treinoHeader">
                 <h2 class="nome">Peito</h2>
@@ -45,9 +54,12 @@
             </span>
             <span class="quantidade">2 exercicios</span>
         </div>
+        -->
     </main>
 
-    
+    <div id='modalContainer'>
+
+    </div>
 
     <script src="src/scripts/main.js"></script>
 </body>

@@ -4,6 +4,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 :root{
@@ -125,3 +127,54 @@ main{
     font-size: 1em;
 }
 
+#semTreino{
+    width: 100%;
+
+    background-color: var(--background-menu);
+
+    padding: 24px;
+    margin-top: 16px;
+
+    border-radius: 6px;
+
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    gap: 8px;
+}
+
+#semTreino h2{
+    color: var(--text-light);
+    font-size: 1.3em;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+#semTreino i{
+    font-size: 2.5em;
+    color: var(--text-light);
+}
+
+#semTreino span{
+    color: var(--text-light);
+    font-size: 1em;
+
+    text-align: center;
+}
+
+#modalContainer{
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.459);
+
+    overflow: hidden;
+}
