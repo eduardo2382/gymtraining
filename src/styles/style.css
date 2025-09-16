@@ -46,6 +46,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     padding: 16px 0px;
 }
@@ -59,7 +60,7 @@ main{
     align-items: center;
 }
 
-#contentHeader span{
+#contentHeader h1{
     color: var(--text-white);
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -79,5 +80,31 @@ main{
     border-radius: 6px;
 
     cursor: pointer;
+}
+
+.treino{
+    width: 100%;
+
+    background-color: var(--background-menu);
+
+    padding: 16px;
+    margin-top: 16px;
+
+    border-radius: 6px;
+}
+
+.treino h2{
+    color: var(--text-white);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+.treino span{
+    color: var(--text-light);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
 }
 
