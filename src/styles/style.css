@@ -15,6 +15,7 @@
     --text-light: #9CA3AF;
     --button: #2563EB;
     --input: #374151;
+    --border-input: #4B5563;
 }
 
 body{
@@ -165,8 +166,6 @@ main{
 }
 
 #modalContainer{
-    display: none;
-
     position: absolute;
     top: 0;
     left: 0;
@@ -176,5 +175,74 @@ main{
 
     background-color: rgba(0, 0, 0, 0.459);
 
+    display: none;
+    align-items: center;
+    justify-content: center;
+
     overflow: hidden;
+}
+
+#modal{
+    width: 80%;
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 16px;
+
+    border-radius: 6px;
+
+    background-color: var(--background-menu);
+}
+
+#modal h2{
+    color: var(--text-white);
+    font-size: 1em;
+
+    margin-bottom: 10px;
+}
+
+#modal input[type=text]{
+    background-color: var(--input);
+
+    border: 1px solid var(--border-input);
+    border-radius: 6px;
+
+    font-size: 1em;
+
+    color: var(--text-white);
+
+    padding: 9px;
+
+    outline: none;
+}
+
+#modal span{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    gap: 10px;
+    
+    margin-top: 10px;
+}
+
+#modal input[type=button]{
+    padding: 11px 16px;
+
+    color: var(--text-white);
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+#btnCancelarTreino{
+    background-color: var(--input);
+}
+
+#btnSalvarTreino{
+    background-color: var(--button);
 }
