@@ -1,10 +1,8 @@
-import { randomUUID } from "crypto"
-
-class Treino {
+export class Treino {
     constructor(nome){
         this.nome = nome
         this.exercicios = []
-        this.id = randomUUID
+        this.id = crypto.randomUUID();
     }
 
     /*

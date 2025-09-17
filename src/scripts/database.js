@@ -1,4 +1,4 @@
-class Database {
+export class Database {
     constructor(){
         if(localStorage.getItem('treinos')){
             this.storage = JSON.parse(localStorage.getItem('treinos'))
