@@ -29,7 +29,14 @@
             <div class="treino">
                 <span class="treinoHeader">
                     <h2 class="nome">Peito</h2>
-                    <i class="ri-more-fill"></i>
+                    <i class="ri-pencil-fill"></i>
+                </span>
+                <span class="editTreino hidden">
+                    <input type="text" class="inputEditTreino" placeholder="Nome do Treino:">
+                    <span class="btnsEdit">
+                        <i class="ri-delete-bin-fill btnEditDelete"></i>
+                        <i class="ri-check-line btnEditConfirm"></i>
+                    </span>
                 </span>
                 <span class="quantidade">2 exercicios</span>
             </div>
@@ -40,10 +47,10 @@
     <div class="modalNovoTreino hidden">
         <div id="modal">
             <h2>Nome do Treino</h2>
-            <input type="text" id="inputTreino" placeholder="Ex: Peito e Triceps">
+            <input type="text" id="inputNovoTreino" placeholder="Ex: Peito e Triceps">
             <span>
-                <input type="button" value="Cancelar" id="btnCancelarTreino">
-                <input type="button" value="Salvar" id="btnSalvarTreino">
+                <input type="button" value="Cancelar" id="btnCancelarNovoTreino">
+                <input type="button" value="Salvar" id="btnSalvarNovoTreino">
             </span>
         </div>
     </div>
