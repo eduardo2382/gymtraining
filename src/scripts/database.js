@@ -10,14 +10,26 @@ export class Database {
     adicionarTreino(treino){
         this.storage.push(treino)
 
-        this.#updateDatabase()
+        this.#atualizarDatabase()
     }
 
     lerTreinos(){
         return this.storage
     }
 
-    #updateDatabase(){
+    atualizarTreino(){
+
+    }
+
+    apagarTreino(id){   
+        this.storage = this.storage.filter((treino)=>{
+            return treino.id != id
+        })
+
+        this.#atualizarDatabase()
+    }
+
+    #atualizarDatabase(){
         localStorage.setItem('treinos', JSON.stringify(this.storage))
     }
 }

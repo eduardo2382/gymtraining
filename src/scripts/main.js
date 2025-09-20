@@ -111,10 +111,7 @@ function criarCard(treino){
 
     iconEdit.onclick = ()=>{
         alternarHidden(treinoHeader)
-        atualizarTreino(treino,editTreino, (novoNomeTreino)=>{
-            console.log(novoNomeTreino)
-            alternarHidden(treinoHeader)
-        })
+        atualizarTreino(treino, editTreino, treinoHeader)
     }
 }
 
@@ -137,7 +134,7 @@ function atualizarCards(){
     }
 }
 
-function atualizarTreino(treino, editTreino, callback){
+function atualizarTreino(treino, editTreino, treinoHeader){
     let inputEditTreino = editTreino.querySelector('.inputEditTreino')
     inputEditTreino.value = treino.nome
     let btnEditDelete = editTreino.querySelector('.btnEditDelete')
@@ -147,13 +144,14 @@ function atualizarTreino(treino, editTreino, callback){
 
     btnEditConfirm.onclick = ()=>{
         if(validarInput(inputEditTreino)){
-            callback(inputEditTreino.value)
             alternarHidden(editTreino)
+            alternarHidden(treinoHeader)
         }
     }
 
     btnEditDelete.onclick = ()=>{
-        callback(undefined)
+        database.apagarTreino(treino.id)
+        atualizarCards()
         alternarHidden(editTreino)
     }
 }
