@@ -13,7 +13,7 @@ atualizarCards()
 btnNovoTreino.onclick = ()=>{
     mostrarModalNovoTreino((nome)=>{
         let treino = new Treino(nome)
-        database.addTreino(treino)
+        database.adicionarTreino(treino)
         atualizarCards()
     })
 }
@@ -110,13 +110,17 @@ function criarCard(treino){
     document.querySelector('.content').appendChild(divTreino)
 
     iconEdit.onclick = ()=>{
-        console.log(divTreino.querySelector('.editTreino'))
+        alternarHidden(treinoHeader)
+        atualizarTreino(treino.nome,editTreino, (novoNomeTreino)=>{
+            console.log(novoNomeTreino)
+            alternarHidden(treinoHeader)
+        })
     }
 }
 
 // atualiza os cards de treino de acordo com o storage do database
 function atualizarCards(){
-    let treinos = database.storage
+    let treinos = database.lerTreinos()
     let semTreino = document.querySelector('#semTreino')
     let content = document.querySelector('.content')
     content.innerHTML = ''
@@ -133,6 +137,26 @@ function atualizarCards(){
     }
 }
 
+function atualizarTreino(treino, editTreino, callback){
+    let inputEditTreino = editTreino.querySelector('.inputEditTreino')
+    inputEditTreino.value = nomeAtual
+    let btnEditDelete = editTreino.querySelector('.btnEditDelete')
+    let btnEditConfirm = editTreino.querySelector('.btnEditConfirm')
+
+    alternarHidden(editTreino)
+
+    btnEditConfirm.onclick = ()=>{
+        if(validarInput(inputEditTreino)){
+            callback(inputEditTreino.value)
+            alternarHidden(editTreino)
+        }
+    }
+
+    btnEditDelete.onclick = ()=>{
+        callback(undefined)
+        alternarHidden(editTreino)
+    }
+}
 
 
 

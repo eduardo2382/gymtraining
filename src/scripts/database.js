@@ -7,10 +7,14 @@ export class Database {
         }
     }
 
-    addTreino(treino){
+    adicionarTreino(treino){
         this.storage.push(treino)
 
         this.#updateDatabase()
+    }
+
+    lerTreinos(){
+        return this.storage
     }
 
     #updateDatabase(){
