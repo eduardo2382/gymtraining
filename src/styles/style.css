@@ -114,11 +114,15 @@ main{
 
 .treinoHeader i{
     color: var(--text-white);
-    font-size: 1.2em;
+    font-size: 1.4em;
 
     display: inline-block;
 
     cursor: pointer;
+}
+
+.treinoHeader i:hover{
+    color: var(--border-input);
 }
 
 .treino h2{
@@ -154,16 +158,24 @@ main{
 
 .editTreino .btnsEdit{
     display: flex;
-    gap: 5px;
+    gap: 7px;
 }
 
 .editTreino i{
     color: var(--text-white);
-    font-size: 1.2em;
+    font-size: 1.4em;
 
     display: inline-block;
 
     cursor: pointer;
+}
+
+.editTreino i:hover{
+    color: var(--border-input);
+}
+
+.btnEditConfirm{
+    font-weight: bold;
 }
 
 .quantidade{

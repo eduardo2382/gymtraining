@@ -17,8 +17,13 @@ export class Database {
         return this.storage
     }
 
-    atualizarTreino(){
-
+    atualizarTreino(id, novoNome){
+        this.storage.forEach((treino)=>{
+            if(treino.id == id){
+                treino.nome = novoNome
+                this.#atualizarDatabase()
+            }
+        })
     }
 
     apagarTreino(id){   

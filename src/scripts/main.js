@@ -143,10 +143,13 @@ function atualizarTreino(treino, editTreino, treinoHeader){
     alternarHidden(editTreino)
 
     btnEditConfirm.onclick = ()=>{
-        if(validarInput(inputEditTreino)){
-            alternarHidden(editTreino)
-            alternarHidden(treinoHeader)
+        if(validarInput(inputEditTreino) && inputEditTreino.value != treino.nome){
+            database.atualizarTreino(treino.id, inputEditTreino.value)
+            atualizarCards()
         }
+
+        alternarHidden(editTreino)
+        alternarHidden(treinoHeader)
     }
 
     btnEditDelete.onclick = ()=>{
