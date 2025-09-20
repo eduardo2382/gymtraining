@@ -1,8 +1,12 @@
 // importa as classes Treino e Database
 import { Treino } from './treino.js'
 import { Database } from './database.js'
+import { elementoTreino } from './elementoTreino.js'
+import { ModalConfirm } from './modalConfirm.js'
 
 const database = new Database()
+
+const modalConfirm = new ModalConfirm()
 
 const btnNovoTreino = document.querySelector('#btnNovoTreino')
 
@@ -30,7 +34,7 @@ function validarInput(input){
 
 // mostra o modal na tela, quando o btn salvar é acionado pega o nome no input e passa para a funcao callback
 function mostrarModalNovoTreino(callback){
-    let modalNovoTreino = document.querySelector('.modalNovoTreino')
+    let modalNovoTreino = document.querySelector('.modal')
     let btnCancelarNovoTreino = document.querySelector('#btnCancelarNovoTreino')
     let btnSalvarNovoTreino = document.querySelector('#btnSalvarNovoTreino')
     let inputNovoTreino = document.querySelector('#inputNovoTreino')
@@ -58,58 +62,13 @@ function alternarHidden(elem){
 }
 
 // cria o elemento html card de cada treino
-function criarCard(treino){
-    let divTreino = document.createElement('div')
-    divTreino.setAttribute('class', 'treino')
+function criarElementoTreino(treino){
+    let elemento = elementoTreino(treino)
+    let btnEdit = elemento.querySelector('.btnEdit')
+    let treinoHeader = elemento.querySelector('.treinoHeader')
+    let editTreino = elemento.querySelector('.editTreino')
 
-
-    let treinoHeader = document.createElement('span')
-    treinoHeader.setAttribute('class', 'treinoHeader')
-
-    let nomeTreino = document.createElement('h2')
-    nomeTreino.setAttribute('class', 'nome')
-    nomeTreino.innerText = treino.nome
-    let iconEdit = document.createElement('i')
-    iconEdit.setAttribute('class', 'ri-pencil-fill')
-
-    treinoHeader.appendChild(nomeTreino)
-    treinoHeader.appendChild(iconEdit)
-
-
-    let editTreino = document.createElement('span')
-    editTreino.setAttribute('class', 'editTreino hidden')
-
-    let inputEditTreino = document.createElement('input')
-    inputEditTreino.setAttribute('type', 'text')
-    inputEditTreino.setAttribute('class', 'inputEditTreino')
-    inputEditTreino.setAttribute('placeholder', 'Nome do Treino:')
-
-    let btnsEdit = document.createElement('span')
-    btnsEdit.setAttribute('class', 'btnsEdit')
-
-    let btnEditDelete = document.createElement('i')
-    btnEditDelete.setAttribute('class', 'ri-delete-bin-fill btnEditDelete')
-
-    let btnEditConfirm = document.createElement('i')
-    btnEditConfirm.setAttribute('class', 'ri-check-line btnEditConfirm')
-
-    btnsEdit.appendChild(btnEditDelete)
-    btnsEdit.appendChild(btnEditConfirm)
-    editTreino.appendChild(inputEditTreino)
-    editTreino.appendChild(btnsEdit)
-
-
-    let quantidade = document.createElement('span')
-    quantidade.setAttribute('class', 'quantidade')
-    quantidade.innerText = `${treino.exercicios.length} exercicios`
-
-    divTreino.appendChild(treinoHeader)
-    divTreino.appendChild(editTreino)
-    divTreino.appendChild(quantidade)
-
-    document.querySelector('.content').appendChild(divTreino)
-
-    iconEdit.onclick = ()=>{
+    btnEdit.onclick = ()=>{
         alternarHidden(treinoHeader)
         atualizarTreino(treino, editTreino, treinoHeader)
     }
@@ -125,7 +84,7 @@ function atualizarCards(){
 
     if(treinos.length > 0){
         treinos.forEach((treino)=>{
-            criarCard(treino)
+            criarElementoTreino(treino)
         })
 
         semTreino.style.display = 'none'
@@ -153,11 +112,14 @@ function atualizarTreino(treino, editTreino, treinoHeader){
     }
 
     btnEditDelete.onclick = ()=>{
-        database.apagarTreino(treino.id)
-        atualizarCards()
-        alternarHidden(editTreino)
+        modalConfirm.mostrar(()=>{
+            database.apagarTreino(treino.id)
+            atualizarCards()
+            alternarHidden(editTreino)
+        })
     }
 }
+
 
 
 

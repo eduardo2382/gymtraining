@@ -44,13 +44,23 @@
         </div>
     </main>
 
-    <div class="modalNovoTreino hidden">
-        <div id="modal">
-            <h2>Nome do Treino</h2>
+    <div class="modal hidden">
+        <div id="modalNovoTreino" class="modalContent">
+            <h2 class="tituloModal">Nome do Treino</h2>
             <input type="text" id="inputNovoTreino" placeholder="Ex: Peito e Triceps">
             <span>
-                <input type="button" value="Cancelar" id="btnCancelarNovoTreino">
-                <input type="button" value="Salvar" id="btnSalvarNovoTreino">
+                <input type="button" value="Cancelar" id="btnCancelarNovoTreino" class="btnModal btnModalCancel">
+                <input type="button" value="Salvar" id="btnSalvarNovoTreino" class="btnModal btnModalConfirm">
+            </span>
+        </div>
+    </div>
+
+    <div class="modal hidden">
+        <div id="modalConfirm" class="modalContent">
+            <h2 class="tituloModal">Confirmar?</h2>
+            <span>
+                <input type="button" value="Cancelar" id="btnModalCancelar" class="btnModal btnModalCancel">
+                <input type="button" value="Confirmar" id="btnModalConfirm" class="btnModal btnModalConfirm">
             </span>
         </div>
     </div>
