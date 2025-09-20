@@ -111,7 +111,7 @@ function criarCard(treino){
 
     iconEdit.onclick = ()=>{
         alternarHidden(treinoHeader)
-        atualizarTreino(treino.nome,editTreino, (novoNomeTreino)=>{
+        atualizarTreino(treino,editTreino, (novoNomeTreino)=>{
             console.log(novoNomeTreino)
             alternarHidden(treinoHeader)
         })
@@ -139,7 +139,7 @@ function atualizarCards(){
 
 function atualizarTreino(treino, editTreino, callback){
     let inputEditTreino = editTreino.querySelector('.inputEditTreino')
-    inputEditTreino.value = nomeAtual
+    inputEditTreino.value = treino.nome
     let btnEditDelete = editTreino.querySelector('.btnEditDelete')
     let btnEditConfirm = editTreino.querySelector('.btnEditConfirm')
 
