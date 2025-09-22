@@ -67,10 +67,6 @@ function criarElementoTreino(treino){
     let treinoHeader = elemento.querySelector('.treinoHeader')
     let editTreino = elemento.querySelector('.editTreino')
 
-    elemento.addEventListener('click', (event)=>{
-        window.location.href = "/src/pages/exercicio.html"
-    })
-
     btnEdit.onclick = (event)=>{
         alternarHidden(treinoHeader)
         atualizarTreino(treino, editTreino, treinoHeader)

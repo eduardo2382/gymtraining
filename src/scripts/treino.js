@@ -82,5 +82,9 @@ export function elementoTreino(treino){
 
     document.querySelector('.content').appendChild(divTreino)
 
+    divTreino.addEventListener('click', ()=>{
+        window.location.href = "/src/pages/paginaTreino.html"
+    })
+
     return divTreino
 }
