@@ -1,7 +1,6 @@
 // importa as classes Treino e Database
-import { Treino } from './treino.js'
+import { Treino, elementoTreino } from './treino.js'
 import { Database } from './database.js'
-import { elementoTreino } from './elementoTreino.js'
 import { ModalConfirm } from './modalConfirm.js'
 
 const database = new Database()
@@ -68,7 +67,7 @@ function criarElementoTreino(treino){
     let treinoHeader = elemento.querySelector('.treinoHeader')
     let editTreino = elemento.querySelector('.editTreino')
 
-    elemento.addEventListener('click', ()=>{
+    elemento.addEventListener('click', (event)=>{
         window.location.href = "/src/pages/exercicio.html"
     })
 
