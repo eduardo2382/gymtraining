@@ -107,6 +107,7 @@ main{
     border-radius: 6px;
 
     cursor: pointer;
+    z-index: 1;
 }
 
 .treinoHeader{
@@ -123,6 +124,8 @@ main{
     display: inline-block;
 
     cursor: pointer;
+
+    z-index: 2;
 }
 
 .treinoHeader i:hover{

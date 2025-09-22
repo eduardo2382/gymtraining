@@ -68,9 +68,14 @@ function criarElementoTreino(treino){
     let treinoHeader = elemento.querySelector('.treinoHeader')
     let editTreino = elemento.querySelector('.editTreino')
 
-    btnEdit.onclick = ()=>{
+    elemento.addEventListener('click', ()=>{
+        window.location.href = "/src/pages/exercicio.html"
+    })
+
+    btnEdit.onclick = (event)=>{
         alternarHidden(treinoHeader)
         atualizarTreino(treino, editTreino, treinoHeader)
+        event.stopPropagation()
     }
 }
 
@@ -101,7 +106,7 @@ function atualizarTreino(treino, editTreino, treinoHeader){
 
     alternarHidden(editTreino)
 
-    btnEditConfirm.onclick = ()=>{
+    btnEditConfirm.onclick = (event)=>{
         if(validarInput(inputEditTreino) && inputEditTreino.value != treino.nome){
             database.atualizarTreino(treino.id, inputEditTreino.value)
             atualizarCards()
@@ -109,14 +114,18 @@ function atualizarTreino(treino, editTreino, treinoHeader){
 
         alternarHidden(editTreino)
         alternarHidden(treinoHeader)
+
+        event.stopPropagation()
     }
 
-    btnEditDelete.onclick = ()=>{
+    btnEditDelete.onclick = (event)=>{
         modalConfirm.mostrar(()=>{
             database.apagarTreino(treino.id)
             atualizarCards()
             alternarHidden(editTreino)
         })
+
+        event.stopPropagation()
     }
 }
 
