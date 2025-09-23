@@ -192,13 +192,16 @@ main{
 
 .exercicioHeader h2{
     color: var(--text-white);
-    font-size: 1.2em;
-}
-
-.exercicioHeader{
-    color: var(--text-light);
     font-size: 1.3em;
 }
+
+.exercicioHeader i{
+    color: var(--text-light);
+    font-size: 1.3em;
+
+    cursor: pointer;
+}
+
 
 .exercicioContent{
     display: flex;
@@ -229,4 +232,134 @@ main{
     color: var(--text-white);
     font-size: 1em;
     font-weight: bold;
+}
+
+
+.modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.459);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+.hidden{
+    display: none;
+}
+
+.modalContent{
+    width: 90%;
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 16px;
+
+    border-radius: 8px;
+
+    background-color: var(--background-menu);
+
+    z-index: 2;
+}
+
+.tituloModal{
+    color: var(--text-white);
+    font-size: 1.2em;
+
+    margin-bottom: 10px;
+}
+
+#modalNovoExercicio input[type=text]{
+    background-color: var(--input);
+
+    border: 1px solid var(--border-input);
+    border-radius: 6px;
+
+    font-size: 1.1em;
+
+    color: var(--text-white);
+
+    padding: 9px;
+
+    outline: none;
+}
+
+#informacoesNovoExercicio{
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.divInformacaoNovoExercicio{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.divInformacaoNovoExercicio span{
+    color: var(--text-white);
+}
+
+.divInformacaoNovoExercicio input[type=number]{
+    width: 100%;
+
+    background-color: var(--input);
+
+    border: 1px solid var(--border-input);
+    border-radius: 6px;
+
+    font-size: 1.1em;
+
+    color: var(--text-white);
+
+    padding: 9px;
+
+    outline: none;
+}
+
+#btnsModal{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    gap: 10px;
+    
+    margin-top: 15px;
+}
+
+.btnModal{
+    padding: 11px 16px;
+
+    color: var(--text-white);
+    font-size: 0.9em;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.btnModalCancel{
+    background-color: var(--input);
+}
+
+.btnModalConfirm{
+    background-color: var(--button);
 }

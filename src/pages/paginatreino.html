@@ -50,6 +50,31 @@
         </div>
     </main>
 
+    <div class="modal hidden">
+        <div id="modalNovoExercicio" class="modalContent">
+            <h2 class="tituloModal">Nome do Exercicio</h2>
+            <input type="text" id="inputNomeNovoExercicio" placeholder="Ex: Supino Reto">
+            <span id="informacoesNovoExercicio">
+                <div class="divInformacaoNovoExercicio">
+                    <span>Series</span>
+                    <input type="number" id="seriesNovoExercicio">
+                </div>
+                <div class="divInformacaoNovoExercicio">
+                    <span>Repetições</span>
+                    <input type="number" id="repeticoesNovoExercicio">
+                </div>
+                <div class="divInformacaoNovoExercicio">
+                    <span>Peso (kg)</span>
+                    <input type="number" id="pesoNovoExercicio">
+                </div>
+            </span>
+            <span id="btnsModal">
+                <input type="button" value="Cancelar" id="btnCancelarNovoExercicio" class="btnModal btnModalCancel">
+                <input type="button" value="Salvar" id="btnSalvarNovoExercicio" class="btnModal btnModalConfirm">
+            </span>
+        </div>
+    </div>
+
     <script type="module" src="../scripts/paginaTreino.js"></script>
 </body>
 </html>
