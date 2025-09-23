@@ -83,7 +83,7 @@ export function elementoTreino(treino){
     document.querySelector('.content').appendChild(divTreino)
 
     divTreino.addEventListener('click', ()=>{
-        window.location.href = "/gymtraining/src/pages/paginatreino.html"
+        window.location.href = "/src/pages/paginatreino.html"
     })
 
     return divTreino
