@@ -72,6 +72,11 @@ function criarElementoTreino(treino){
         atualizarTreino(treino, editTreino, treinoHeader)
         event.stopPropagation()
     }
+
+    elemento.addEventListener('click', ()=>{
+        atualizarTreinoAtual(treino.id)
+        window.location.href = "gymtraining/src/pages/paginatreino.html"
+    })
 }
 
 // atualiza os cards de treino de acordo com o storage do database
@@ -124,6 +129,9 @@ function atualizarTreino(treino, editTreino, treinoHeader){
     }
 }
 
+function atualizarTreinoAtual(id=undefined){
+    localStorage.setItem('treinoAtual', id)
+}
 
 
 
