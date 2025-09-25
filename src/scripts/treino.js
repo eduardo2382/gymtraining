@@ -5,7 +5,6 @@ export class Treino {
         this.id = crypto.randomUUID();
     }
 
-    /*
     novoExercicio(nome, series, repeticoes, peso){ 
         this.exercicios.push({
             id: randomUUID(),
@@ -15,7 +14,6 @@ export class Treino {
             peso: peso
         })
     }
-    */
 }
 
 /*
@@ -81,8 +79,6 @@ export function elementoTreino(treino){
     divTreino.appendChild(quantidade)
 
     document.querySelector('.content').appendChild(divTreino)
-
-    
 
     return divTreino
 }

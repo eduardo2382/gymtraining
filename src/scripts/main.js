@@ -17,6 +17,7 @@ btnNovoTreino.onclick = ()=>{
     mostrarModalNovoTreino((nome)=>{
         let treino = new Treino(nome)
         database.adicionarTreino(treino)
+        atual
         atualizarCards()
     })
 }
@@ -75,7 +76,7 @@ function criarElementoTreino(treino){
 
     elemento.addEventListener('click', ()=>{
         atualizarTreinoAtual(treino.id)
-        window.location.href = "gymtraining/src/pages/paginatreino.html"
+        window.location.href = "./src/pages/paginatreino.html"  
     })
 }
 
@@ -129,11 +130,8 @@ function atualizarTreino(treino, editTreino, treinoHeader){
     }
 }
 
-function atualizarTreinoAtual(id=undefined){
+function atualizarTreinoAtual(id){
     localStorage.setItem('treinoAtual', id)
 }
-
-
-
 
 
