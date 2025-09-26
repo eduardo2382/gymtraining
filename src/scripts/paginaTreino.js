@@ -74,21 +74,21 @@ function criarElementoExercicio(exercicio){
     exercicioElemento.innerHTML = `
          <div class="contentExercicio">
                     <span class="exercicioHeader">
-                        <h2>Supino Reto</h2>
+                        <h2>${exercicio.nome}</h2>
                         <i class="ri-pencil-fill"></i>
                     </span>
                     <span class="exercicoInfos">
                         <div class="divInformacao">
                             <span class="infoTitulo">Séries</span>
-                            <span class="serie info">0</span>
+                            <span class="serie info">${exercicio.series}</span>
                         </div>
                         <div class="divInformacao">
                             <span class="infoTitulo">Repetições</span>
-                            <span class="repeticao info">0</span>
+                            <span class="repeticao info">${exercicio.repeticoes}</span>
                         </div>
                         <div class="divInformacao">
                             <span class="infoTitulo">Peso (kg)</span>
-                            <span class="peso info">0</span>
+                            <span class="peso info">${exercicio.peso}</span>
                         </div>
                     </span>
                 </div>
