@@ -10,15 +10,14 @@ const modalConfirm = new ModalConfirm()
 const btnNovoTreino = document.querySelector('#btnNovoTreino')
 
 // quando o site inicia atualiza os card com o storage inicial do database
-atualizarCards()
+atualizarCardsTreino()
 
 // quando clicado o botao aciona o modal passando uma funcao, essa funcao recebe o nome do novo treino e cria um objeto treino com esse nome, depois adiciona esse treino no database e atualiza os card de treinos no html
 btnNovoTreino.onclick = ()=>{
     mostrarModalNovoTreino((nome)=>{
         let treino = new Treino(nome)
         database.adicionarTreino(treino)
-        atual
-        atualizarCards()
+        atualizarCardsTreino()
     })
 }
 
@@ -81,7 +80,7 @@ function criarElementoTreino(treino){
 }
 
 // atualiza os cards de treino de acordo com o storage do database
-function atualizarCards(){
+function atualizarCardsTreino(){
     let treinos = database.lerTreinos()
     let semTreino = document.querySelector('#semTreino')
     let content = document.querySelector('.content')
@@ -109,8 +108,9 @@ function atualizarTreino(treino, editTreino, treinoHeader){
 
     btnEditConfirm.onclick = (event)=>{
         if(validarInput(inputEditTreino) && inputEditTreino.value != treino.nome){
-            database.atualizarTreino(treino.id, inputEditTreino.value)
-            atualizarCards()
+            treino.nome = inputEditTreino.value
+            database.atualizarTreino(treino.id, treino)
+            atualizarCardsTreino()
         }
 
         alternarHidden(editTreino)
@@ -122,7 +122,7 @@ function atualizarTreino(treino, editTreino, treinoHeader){
     btnEditDelete.onclick = (event)=>{
         modalConfirm.mostrar(()=>{
             database.apagarTreino(treino.id)
-            atualizarCards()
+            atualizarCardsTreino()
             alternarHidden(editTreino)
         })
 

@@ -109,7 +109,7 @@ main{
     text-align: left;
 }
 
-#btnAdicionarExercicio{
+#btnCriarExercicio{
     width: 100%;
 
     display: flex;
@@ -134,11 +134,11 @@ main{
     cursor: pointer;
 }
 
-#btnAdicionarExercicio:hover{
+#btnCriarExercicio:hover{
     background-color: var(--hover-button);;
 }
 
-#btnAdicionarExercicio span:nth-child(1){
+#btnCriarExercicio span:nth-child(1){
     font-size: 1.4em;
 }
 

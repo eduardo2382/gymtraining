@@ -27,10 +27,10 @@ export class Database {
         }
     }
 
-    atualizarTreino(id, novoNome){
+    atualizarTreino(id, novoTreino){
         this.storage.forEach((treino)=>{
             if(treino.id == id){
-                treino.nome = novoNome
+                treino = novoTreino
                 this.#atualizarDatabase()
             }
         })

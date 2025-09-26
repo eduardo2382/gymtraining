@@ -16,7 +16,7 @@
     <main>
         <div id="contentHeader">
             <h1>Treino</h1>
-            <span id="btnAdicionarExercicio">
+            <span id="btnCriarExercicio">
                 <span>+</span>
                 <span>Adicionar Exercicio</span>
             </span>
@@ -57,15 +57,15 @@
             <span id="informacoesNovoExercicio">
                 <div class="divInformacaoNovoExercicio">
                     <span>Series</span>
-                    <input type="number" id="seriesNovoExercicio">
+                    <input type="number" id="seriesNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined">
                 </div>
                 <div class="divInformacaoNovoExercicio">
                     <span>Repetições</span>
-                    <input type="number" id="repeticoesNovoExercicio">
+                    <input type="number" id="repeticoesNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined">
                 </div>
                 <div class="divInformacaoNovoExercicio">
                     <span>Peso (kg)</span>
-                    <input type="number" id="pesoNovoExercicio">
+                    <input type="number" id="pesoNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined">
                 </div>
             </span>
             <span id="btnsModal">
