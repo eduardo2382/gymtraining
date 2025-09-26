@@ -168,10 +168,6 @@ main{
 .exercicio{
     width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
     background-color: var(--background-menu);
 
     border-radius: 8px;
@@ -179,6 +175,82 @@ main{
     padding: 16px;
 
     margin-top: 16px;
+}
+
+.contentExercicio{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editExercicio{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editExercicioHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.editExercicio input[type=text]{
+    width: 70%;
+
+    background-color: var(--input);
+
+    border: 1px solid var(--border-input);
+    border-radius: 6px;
+
+    font-size: 1em;
+
+    color: var(--text-white);
+
+    padding: 5px;
+
+    outline: none;
+}
+
+.editExercicio .btnsEdit{
+    display: flex;
+    gap: 7px;
+}
+
+.editExercicio i{
+    color: var(--text-white);
+    font-size: 1.4em;
+
+    display: inline-block;
+
+    cursor: pointer;
+}
+
+.editExercicio .divInformacao{
+    background-color: transparent;
+
+    padding: 0;
+}
+
+.editExercicio .divInformacao .infoTitulo{
+    color: var(--text-white);
+}
+
+.editExercicio input[type=number]{
+    width: 100%;
+
+    background-color: var(--input);
+
+    border: 1px solid var(--border-input);
+    border-radius: 6px;
+
+    font-size: 1.1em;
+
+    color: var(--text-white);
+
+    padding: 9px;
+
+    outline: none;
 }
 
 .exercicioHeader{
@@ -203,7 +275,7 @@ main{
 }
 
 
-.exercicioContent{
+.exercicoInfos{
     display: flex;
     flex-direction: row;
     gap: 8px;

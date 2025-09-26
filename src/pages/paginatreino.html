@@ -27,28 +27,51 @@
         </div>
 
         <div id="content">
-            <!--
             <div class="exercicio">
-                <span class="exercicioHeader">
-                    <h2>Supino Reto</h2>
-                    <i class="ri-pencil-fill"></i>
-                </span>
-                <span class="exercicioContent">
-                    <div class="divInformacao">
-                        <span class="infoTitulo">Séries</span>
-                        <span class="serie info">0</span>
-                    </div>
-                    <div class="divInformacao">
-                        <span class="infoTitulo">Repetições</span>
-                        <span class="repeticao info">0</span>
-                    </div>
-                    <div class="divInformacao">
-                        <span class="infoTitulo">Peso (kg)</span>
-                        <span class="peso info">0</span>
-                    </div>
-                </span>
+                <div class="contentExercicio hidden">
+                    <span class="exercicioHeader">
+                        <h2>Supino Reto</h2>
+                        <i class="ri-pencil-fill"></i>
+                    </span>
+                    <span class="exercicoInfos">
+                        <div class="divInformacao">
+                            <span class="infoTitulo">Séries</span>
+                            <span class="serie info">0</span>
+                        </div>
+                        <div class="divInformacao">
+                            <span class="infoTitulo">Repetições</span>
+                            <span class="repeticao info">0</span>
+                        </div>
+                        <div class="divInformacao">
+                            <span class="infoTitulo">Peso (kg)</span>
+                            <span class="peso info">0</span>
+                        </div>
+                    </span>
+                </div>
+                <div class="editExercicio">
+                    <span class="editExercicioHeader">
+                        <input type="text" id="inputNomeEditExercicio" placeholder="Nome do Exercicio:">
+                        <span class="btnsEdit">
+                            <i class="ri-delete-bin-fill btnEditDelete"></i>
+                            <i class="ri-check-line btnEditConfirm"></i>
+                        </span>
+                    </span>
+                    <span class="exercicoInfos">
+                        <div class="divInformacao">
+                            <span class="infoTitulo">Séries</span>
+                            <input type="number" id="editSeries" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined" value="0">
+                        </div>
+                        <div class="divInformacao">
+                            <span class="infoTitulo">Repetições</span>
+                            <input type="number" id="editRepeticoes" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined" value="0">
+                        </div>
+                        <div class="divInformacao">
+                            <span class="infoTitulo">Peso (kg)</span>
+                            <input type="number" id="editPeso" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined" value="0">
+                        </div>
+                    </span>
+                </div>
             </div>
-            -->
         </div>
     </main>
 
@@ -59,15 +82,15 @@
             <span id="informacoesNovoExercicio">
                 <div class="divInformacaoNovoExercicio">
                     <span>Series</span>
-                    <input type="number" id="seriesNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined">
+                    <input type="number" id="seriesNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined" value="0">
                 </div>
                 <div class="divInformacaoNovoExercicio">
                     <span>Repetições</span>
-                    <input type="number" id="repeticoesNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined">
+                    <input type="number" id="repeticoesNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined" value="0">
                 </div>
                 <div class="divInformacaoNovoExercicio">
                     <span>Peso (kg)</span>
-                    <input type="number" id="pesoNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined">
+                    <input type="number" id="pesoNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined" value="0">
                 </div>
             </span>
             <span id="btnsModal">
