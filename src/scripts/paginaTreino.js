@@ -13,8 +13,8 @@ btnCriarExercicio.addEventListener('click', ()=>{
     mostrarModalNovoExercicio((nome, series, repeticoes, peso)=>{
         let exercicio = new Exercicio(nome, series, repeticoes, peso)
         treinoAtual.exercicios.push(exercicio)
-        console.log(treinoAtual)
         database.atualizarTreino(treinoAtual.id, treinoAtual)
+        atualizarExercicios()
     })
 })
 
@@ -65,3 +65,52 @@ function mostrarModalNovoExercicio(callback){
         alternarVisivel(modal)
     }
 }
+
+function criarElementoExercicio(exercicio){
+    let exercicioElemento = document.createElement('div')
+    exercicioElemento.setAttribute('class', 'exercicio')
+
+    exercicioElemento.innerHTML = `
+        <span class="exercicioHeader">
+            <h2>${exercicio.nome}</h2>
+            <i class="ri-pencil-fill"></i>
+        </span>
+        <span class="exercicioContent">
+            <div class="divInformacao">
+                <span class="infoTitulo">Séries</span>
+                <span class="serie info">${exercicio.series}</span>
+            </div>
+            <div class="divInformacao">
+                <span class="infoTitulo">Repetições</span>
+                <span class="repeticao info">${exercicio.repeticoes}</span>
+            </div>
+            <div class="divInformacao">
+                <span class="infoTitulo">Peso (kg)</span>
+                <span class="peso info">${exercicio.peso}</span>
+            </div>
+        </span>
+    `
+
+    document.querySelector("#content").appendChild(exercicioElemento)
+
+    return exercicioElemento
+}
+
+function atualizarExercicios(){
+    let exercicios = treinoAtual.exercicios
+    let semExercicio = document.querySelector('#semExercicio')
+    document.querySelector("#content").innerHTML = ""
+
+    if(exercicios.length > 0){
+        exercicios.forEach((exercicio)=>{
+            criarElementoExercicio(exercicio)
+        })
+
+        semExercicio.style.display = 'none'
+        return
+    }
+
+    semExercicio.style.display = 'flex'
+}
+
+atualizarExercicios()
