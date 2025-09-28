@@ -6,6 +6,7 @@
     <title>GymTraining</title>
     <link rel="stylesheet" href="../styles/paginaTreino.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="src/styles/dragDrop.css">
 </head>
 <body>
     <header>
@@ -82,15 +83,15 @@
             <span id="informacoesNovoExercicio">
                 <div class="divInformacaoNovoExercicio">
                     <span>Series</span>
-                    <input type="number" id="seriesNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined" value="0">
+                    <input type="number" id="seriesNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined">
                 </div>
                 <div class="divInformacaoNovoExercicio">
                     <span>Repetições</span>
-                    <input type="number" id="repeticoesNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined" value="0">
+                    <input type="number" id="repeticoesNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined">
                 </div>
                 <div class="divInformacaoNovoExercicio">
                     <span>Peso (kg)</span>
-                    <input type="number" id="pesoNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined" value="0">
+                    <input type="number" id="pesoNovoExercicio" onkeypress="return event.charCode >= 48 && event.charCode <= 57" oninput="event.target.value <0 ? event.target.value=0 : undefined">
                 </div>
             </span>
             <span id="btnsModal">

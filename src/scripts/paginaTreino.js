@@ -1,6 +1,7 @@
 import { Database } from "./database.js"
 import { Exercicio } from "./exercicio.js"
 import { ModalConfirm } from "./modalConfirm.js"
+import { mapearDragDrop } from './dragDrop.js'
 
 const database = new Database()
 var treinoAtual = database.buscarTreino(localStorage.getItem('treinoAtual'))
@@ -11,6 +12,10 @@ const tituloTreino = document.querySelector('#contentHeader h1')
 tituloTreino.innerText = treinoAtual.nome
 const btnCriarExercicio = document.querySelector("#btnCriarExercicio")
 
+const content = document.querySelector('#content')
+mapearDragDrop(content, 'exercicio', ()=>{
+
+})
 
 btnCriarExercicio.addEventListener('click', ()=>{
     mostrarModalNovoExercicio((nome, series, repeticoes, peso)=>{
@@ -40,7 +45,7 @@ function validarInput(inputs){
 
 function limparInput(inputs){
     inputs.forEach((input)=>{
-        input.value = input.type == 'number' ? 0 : ""
+        input.value = ""
     })
 }
 
@@ -73,6 +78,7 @@ function mostrarModalNovoExercicio(callback){
 function criarElementoExercicio(exercicio){
     let exercicioElemento = document.createElement('div')
     exercicioElemento.setAttribute('class', 'exercicio')
+    exercicioElemento.draggable = 'true'
 
     exercicioElemento.innerHTML = `
          <div class="contentExercicio">
