@@ -97,6 +97,8 @@ main{
 .treino{
     width: 100%;
 
+    position: relative;
+
     display: flex;
     flex-direction: column;
 
@@ -108,7 +110,6 @@ main{
     border-radius: 8px;
 
     cursor: pointer;
-    z-index: 1;
 }
 
 .treino:hover{
@@ -120,6 +121,8 @@ main{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    pointer-events: none;
 }
 
 .treinoHeader i{
@@ -130,7 +133,7 @@ main{
 
     cursor: pointer;
 
-    z-index: 2;
+    pointer-events: painted;
 }
 
 .treinoHeader i:hover{
@@ -191,6 +194,8 @@ main{
 }
 
 .quantidade{
+    width: fit-content;
+
     color: var(--text-light);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;

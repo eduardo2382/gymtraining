@@ -1,0 +1,24 @@
+.destaqueTop::before, .destaqueBottom::after{
+    position: absolute;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    content: "";
+    width: 80%;
+    height: 3px;
+
+    text-align: center;
+    
+
+    background-color: #F3F4F6;
+}
+
+.destaqueTop::before{
+    top: -8px;
+}
+
+.destaqueBottom::after{
+    bottom: -11px;
+}

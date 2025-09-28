@@ -19,6 +19,8 @@ export class Treino {
 export function elementoTreino(treino){
     let divTreino = document.createElement('div')
     divTreino.setAttribute('class', 'treino')
+    divTreino.draggable = 'true'
+    divTreino.id = treino.id
 
 
     let treinoHeader = document.createElement('span')
@@ -60,7 +62,7 @@ export function elementoTreino(treino){
     editTreino.appendChild(btnsEdit)
 
 
-    let quantidade = document.createElement('span')
+    let quantidade = document.createElement('p')
     quantidade.setAttribute('class', 'quantidade')
     quantidade.innerText = `${treino.exercicios.length} exercicios`
 

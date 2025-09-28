@@ -2,15 +2,19 @@
 import { Treino, elementoTreino } from './treino.js'
 import { Database } from './database.js'
 import { ModalConfirm } from './modalConfirm.js'
+import { mapearDragDrop } from './dragDrop.js'
 
 const database = new Database()
 
 const modalConfirm = new ModalConfirm()
 
 const btnNovoTreino = document.querySelector('#btnNovoTreino')
+const content = document.querySelector('.content')
 
 // quando o site inicia atualiza os card com o storage inicial do database
-atualizarCardsTreino()
+if(database.storage.length > 0){
+    atualizarCardsTreino()
+}
 
 // quando clicado o botao aciona o modal passando uma funcao, essa funcao recebe o nome do novo treino e cria um objeto treino com esse nome, depois adiciona esse treino no database e atualiza os card de treinos no html
 btnNovoTreino.onclick = ()=>{
@@ -20,6 +24,10 @@ btnNovoTreino.onclick = ()=>{
         atualizarCardsTreino()
     })
 }
+
+mapearDragDrop(content, 'treino', ()=>{
+    atualizarPosicoesTreinos()
+})
 
 // verifica se o input tem dado de entrada valido
 function validarInput(input){
@@ -134,4 +142,13 @@ function atualizarTreinoAtual(id){
     localStorage.setItem('treinoAtual', id)
 }
 
+function atualizarPosicoesTreinos(){
+    let treinosElem = document.querySelectorAll('.treino')
+    let treinos = []
 
+    treinosElem.forEach((treinoElem)=>{
+        treinos.push(database.buscarTreino(treinoElem.id))
+    })
+
+    database.atualizarPosicoes(treinos)
+}

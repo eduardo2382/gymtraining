@@ -36,6 +36,12 @@ export class Database {
         })
     }
 
+    atualizarPosicoes(listaTreinos){
+        this.storage = listaTreinos
+
+        this.#atualizarDatabase()
+    }
+
     apagarTreino(id){   
         this.storage = this.storage.filter((treino)=>{
             return treino.id != id
