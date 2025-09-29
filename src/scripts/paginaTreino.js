@@ -14,7 +14,7 @@ const btnCriarExercicio = document.querySelector("#btnCriarExercicio")
 
 const content = document.querySelector('#content')
 mapearDragDrop(content, 'exercicio', ()=>{
-
+    atualizarPosicoesExercicios()
 })
 
 btnCriarExercicio.addEventListener('click', ()=>{
@@ -78,6 +78,7 @@ function mostrarModalNovoExercicio(callback){
 function criarElementoExercicio(exercicio){
     let exercicioElemento = document.createElement('div')
     exercicioElemento.setAttribute('class', 'exercicio')
+    exercicioElemento.id = exercicio.id
     exercicioElemento.draggable = 'true'
 
     exercicioElemento.innerHTML = `
@@ -217,5 +218,21 @@ function deletarExercicio(id){
     treinoAtual.exercicios = treinoAtual.exercicios.filter((exercicio)=>{
         return exercicio.id != id
     })  
+    database.atualizarTreino(treinoAtual.id, treinoAtual)
+}
+
+function atualizarPosicoesExercicios(){
+    let elementosExercicio = document.querySelectorAll('.exercicio')
+    let novaPosicao = []
+
+    elementosExercicio.forEach((elemExercicio)=>{
+        treinoAtual.exercicios.forEach((exercicio)=>{
+            if(elemExercicio.id == exercicio.id){
+                novaPosicao.push(exercicio)
+            }
+        })
+    })
+
+    treinoAtual.exercicios = novaPosicao
     database.atualizarTreino(treinoAtual.id, treinoAtual)
 }

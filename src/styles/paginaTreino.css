@@ -166,6 +166,8 @@ main{
 }
 
 .exercicio{
+    position: relative;
+
     width: 100%;
 
     background-color: var(--background-menu);
@@ -181,6 +183,8 @@ main{
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    pointer-events: none;
 }
 
 .editExercicio{
@@ -260,6 +264,8 @@ main{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    pointer-events: none;
 }
 
 .exercicioHeader h2{
@@ -272,6 +278,8 @@ main{
     font-size: 1.3em;
 
     cursor: pointer;
+
+    pointer-events: all;
 }
 
 
