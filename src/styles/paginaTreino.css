@@ -273,9 +273,14 @@ main{
     font-size: 1.3em;
 }
 
+.btnsExercicio{
+    display: flex;
+    gap: 8px;
+}
+
 .exercicioHeader i{
     color: var(--text-light);
-    font-size: 1.3em;
+    font-size: 1.4em;
 
     cursor: pointer;
 

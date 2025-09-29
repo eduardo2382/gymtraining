@@ -1,7 +1,6 @@
 import { Database } from "./database.js"
 import { Exercicio } from "./exercicio.js"
 import { ModalConfirm } from "./modalConfirm.js"
-import { mapearDragDrop } from './dragDrop.js'
 
 const database = new Database()
 var treinoAtual = database.buscarTreino(localStorage.getItem('treinoAtual'))
@@ -12,10 +11,6 @@ const tituloTreino = document.querySelector('#contentHeader h1')
 tituloTreino.innerText = treinoAtual.nome
 const btnCriarExercicio = document.querySelector("#btnCriarExercicio")
 
-const content = document.querySelector('#content')
-mapearDragDrop(content, 'exercicio', ()=>{
-    atualizarPosicoesExercicios()
-})
 
 btnCriarExercicio.addEventListener('click', ()=>{
     mostrarModalNovoExercicio((nome, series, repeticoes, peso)=>{
@@ -85,7 +80,11 @@ function criarElementoExercicio(exercicio){
          <div class="contentExercicio">
             <span class="exercicioHeader">
                 <h2>${exercicio.nome}</h2>
-                <i class="ri-pencil-fill btnEdit"></i>
+                <span class="btnsExercicio">
+                    <i class="ri-pencil-fill btnEdit"></i>
+                    <i class="ri-arrow-up-s-line btnOrdem ordenarCima"></i>
+                    <i class="ri-arrow-down-s-line btnOrdem ordenarBaixo"></i>
+                </span>
             </span>
             <span class="exercicoInfos">
                 <div class="divInformacao">
@@ -130,9 +129,7 @@ function criarElementoExercicio(exercicio){
     document.querySelector("#content").appendChild(exercicioElemento)
 
     exercicioElemento.querySelector('.btnEdit').onclick = ()=>{
-        editarExercicio(exercicioElemento, exercicio,()=>{
-            
-        })
+        editarExercicio(exercicioElemento, exercicio)
     }
 
     return exercicioElemento
@@ -157,7 +154,7 @@ function atualizarCardsExercicios(){
 
 atualizarCardsExercicios()
 
-function editarExercicio(exercicioElemento, exercicio, callback){
+function editarExercicio(exercicioElemento, exercicio){
     let contentExercicio = exercicioElemento.querySelector('.contentExercicio')
     let editExercicio = exercicioElemento.querySelector(".editExercicio")
 
@@ -222,17 +219,5 @@ function deletarExercicio(id){
 }
 
 function atualizarPosicoesExercicios(){
-    let elementosExercicio = document.querySelectorAll('.exercicio')
-    let novaPosicao = []
-
-    elementosExercicio.forEach((elemExercicio)=>{
-        treinoAtual.exercicios.forEach((exercicio)=>{
-            if(elemExercicio.id == exercicio.id){
-                novaPosicao.push(exercicio)
-            }
-        })
-    })
-
-    treinoAtual.exercicios = novaPosicao
-    database.atualizarTreino(treinoAtual.id, treinoAtual)
+   
 }
