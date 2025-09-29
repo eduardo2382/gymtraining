@@ -132,6 +132,14 @@ function criarElementoExercicio(exercicio){
         editarExercicio(exercicioElemento, exercicio)
     }
 
+    exercicioElemento.querySelector('.ordenarCima').onclick = ()=>{
+        moverElemExercicios(exercicioElemento, 'cima')
+    }
+
+    exercicioElemento.querySelector('.ordenarBaixo').onclick = ()=>{
+        moverElemExercicios(exercicioElemento, 'baixo')
+    }
+
     return exercicioElemento
 }
 
@@ -218,6 +226,36 @@ function deletarExercicio(id){
     database.atualizarTreino(treinoAtual.id, treinoAtual)
 }
 
-function atualizarPosicoesExercicios(){
-   
+function moverElemExercicios(elemento, direcao){
+    let elemExercicios = Array.from(document.querySelectorAll('.exercicio'))
+    let indice = elemExercicios.indexOf(elemento)
+
+    if(direcao == 'cima' && indice != 0){
+        elemExercicios.splice(indice-1, 0, elemento)
+        elemExercicios.splice(indice+1, 1)
+        console.log(elemExercicios)
+    }
+    
+    if(direcao == 'baixo'){
+        elemExercicios.splice(indice, 1)
+        elemExercicios.splice(indice+1, 0, elemento)
+    }
+
+    atualizarPosicoesExercicios(elemExercicios)
+}
+
+function atualizarPosicoesExercicios(elementos){
+    let posicoesExercicios = []
+
+    elementos.forEach((elemento)=>{
+        treinoAtual.exercicios.forEach((exercicio)=>{
+            if(elemento.id == exercicio.id){
+                posicoesExercicios.push(exercicio)
+            }
+        })
+    })
+
+    treinoAtual.exercicios = posicoesExercicios
+    database.atualizarTreino(treinoAtual.id, treinoAtual)
+    atualizarCardsExercicios()
 }

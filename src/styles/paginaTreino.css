@@ -71,6 +71,8 @@ header input:hover{
 
 
 main{
+    position: relative;
+
     width: 80vw;
     max-width: 500px;
 
@@ -177,6 +179,8 @@ main{
     padding: 16px;
 
     margin-top: 16px;
+
+    transition: 1s;
 }
 
 .contentExercicio{
