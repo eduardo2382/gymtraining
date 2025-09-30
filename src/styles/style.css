@@ -140,11 +140,20 @@ main{
     color: var(--border-input);
 }
 
+.btnsTreino{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
 .treino h2{
     color: var(--text-white);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.3em;
     font-weight: 600;
+
+    
+    max-width: 60%;
 }
 
 .editTreino{

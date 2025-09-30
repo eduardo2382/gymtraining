@@ -279,7 +279,9 @@ main{
 
 .btnsExercicio{
     display: flex;
-    gap: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 .exercicioHeader i{
