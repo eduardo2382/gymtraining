@@ -121,8 +121,6 @@ main{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    pointer-events: none;
 }
 
 .treinoHeader i{
@@ -132,6 +130,8 @@ main{
     display: inline-block;
 
     cursor: pointer;
+
+    z-index: 10;
 
     pointer-events: painted;
 }

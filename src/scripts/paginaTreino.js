@@ -230,7 +230,7 @@ function moverElemExercicios(elemento, direcao){
     let elemExercicios = Array.from(document.querySelectorAll('.exercicio'))
     let indice = elemExercicios.indexOf(elemento)
 
-    if(direcao == 'cima' && indice != 0){
+    if(direcao == 'cima'){
         elemExercicios.splice(indice-1, 0, elemento)
         elemExercicios.splice(indice+1, 1)
         console.log(elemExercicios)

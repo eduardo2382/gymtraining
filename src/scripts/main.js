@@ -12,9 +12,7 @@ const btnNovoTreino = document.querySelector('#btnNovoTreino')
 const content = document.querySelector('.content')
 
 // quando o site inicia atualiza os card com o storage inicial do database
-if(database.storage.length > 0){
-    atualizarCardsTreino()
-}
+atualizarCardsTreino()
 
 // quando clicado o botao aciona o modal passando uma funcao, essa funcao recebe o nome do novo treino e cria um objeto treino com esse nome, depois adiciona esse treino no database e atualiza os card de treinos no html
 btnNovoTreino.onclick = ()=>{
@@ -70,10 +68,40 @@ function alternarHidden(elem){
 
 // cria o elemento html card de cada treino
 function criarElementoTreino(treino){
-    let elemento = elementoTreino(treino)
-    let btnEdit = elemento.querySelector('.btnEdit')
-    let treinoHeader = elemento.querySelector('.treinoHeader')
-    let editTreino = elemento.querySelector('.editTreino')
+    let elementoTreino = document.createElement('div')
+    elementoTreino.id = treino.id
+    elementoTreino.classList.add('treino')
+    elementoTreino.innerHTML = `
+        <span class="treinoHeader">
+            <h2 class="nome">${treino.nome}</h2>
+            <span class="btnsTreino">
+                <i class="ri-pencil-fill btnEdit"></i>
+                <i class="ri-arrow-up-s-line ordenarCima"></i>
+                <i class="ri-arrow-down-s-line ordenarBaixo"></i>
+            </span>
+        </span>
+        <span class="editTreino hidden">
+            <input type="text" class="inputEditTreino" placeholder="Nome do Treino:">
+            <span class="btnsEdit">
+                <i class="ri-delete-bin-fill btnEditDelete"></i>
+                <i class="ri-check-line btnEditConfirm"></i>
+            </span>
+        </span>
+        <p class="quantidade">${treino.exercicios.length} exercicios</p>
+    `
+
+    document.querySelector('.content').appendChild(elementoTreino)
+
+
+    let btnEdit = elementoTreino.querySelector('.btnEdit')
+    let treinoHeader = elementoTreino.querySelector('.treinoHeader')
+    let editTreino = elementoTreino.querySelector('.editTreino')
+    let btnOrdemCima = elementoTreino.querySelector('.ordenarCima')
+    let btnOrdemBaixo = elementoTreino.querySelector('.ordenarBaixo')
+
+    elementoTreino.querySelector('.inputEditTreino').onclick = (event)=>{
+        event.stopPropagation()
+    }
 
     btnEdit.onclick = (event)=>{
         alternarHidden(treinoHeader)
@@ -81,9 +109,19 @@ function criarElementoTreino(treino){
         event.stopPropagation()
     }
 
-    elemento.addEventListener('click', ()=>{
+    btnOrdemCima.onclick = (event)=>{
+        moverElemTreinos(elementoTreino, 'cima')
+        event.stopPropagation()
+    }
+
+    btnOrdemBaixo.onclick = (event)=>{
+        moverElemTreinos(elementoTreino, 'baixo')
+        event.stopPropagation()
+    }
+
+    elementoTreino.addEventListener('click', (event)=>{
         atualizarTreinoAtual(treino.id)
-        window.location.href = "./src/pages/paginatreino.html"  
+        window.location.href = "./src/pages/paginatreino.html" 
     })
 }
 
@@ -142,13 +180,30 @@ function atualizarTreinoAtual(id){
     localStorage.setItem('treinoAtual', id)
 }
 
-function atualizarPosicoesTreinos(){
-    let treinosElem = document.querySelectorAll('.treino')
-    let treinos = []
+function moverElemTreinos(elemento, direcao){
+    let elemTreinos = Array.from(document.querySelectorAll('.treino'))
+    let indice = elemTreinos.indexOf(elemento)
 
-    treinosElem.forEach((treinoElem)=>{
-        treinos.push(database.buscarTreino(treinoElem.id))
+    if(direcao == 'cima' && indice!=0){
+        elemTreinos.splice(indice-1, 0, elemento)
+        elemTreinos.splice(indice+1, 1)
+    }
+    
+    if(direcao == 'baixo'){
+        elemTreinos.splice(indice, 1)
+        elemTreinos.splice(indice+1, 0, elemento)
+    }
+
+    atualizarPosicoesTreinos(elemTreinos)
+}
+
+function atualizarPosicoesTreinos(elemTreinos){
+    let posicoesTreinos = []
+
+    elemTreinos.forEach((elemento)=>{
+        posicoesTreinos.push(database.buscarTreino(elemento.id))
     })
 
-    database.atualizarPosicoes(treinos)
+    database.atualizarPosicoes(posicoesTreinos)
+    atualizarCardsTreino()
 }
